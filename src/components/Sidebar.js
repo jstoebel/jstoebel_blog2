@@ -6,9 +6,6 @@ import headshot from '../assets/images/headshot.jpg';
 import config from '../../config';
 
 const Sidebar = () => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
   const tabs = [
       { content: 'About', href: 'about' },
       { content: 'Experience', href: 'experience' },
