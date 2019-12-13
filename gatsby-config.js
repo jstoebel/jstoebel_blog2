@@ -16,7 +16,6 @@ module.exports = {
         background_color: config.manifestBackgroundColor,
         theme_color: config.manifestThemeColor,
         display: config.manifestDisplay,
-        icon: config.manifestIcon, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-sass',
