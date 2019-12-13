@@ -1,82 +1,72 @@
 import React from 'react'
 
-const Experience = () => (
-  <section
-    className="resume-section p-3 p-lg-5 d-flex justify-content-center"
+const Experience = () => {
+
+  const sections = [
+    {
+      company: 'ePublishing, Inc',
+      title: 'Software Developer',
+      date: '2018 - Present',
+      bullets: [
+        'Ship features (Rails / Javascript) in a fast paced environment for multiple clients striking a balance between completing work efficiently and minimizing technical debt.',
+        'Maintain ePublishing’s main legacy system, Jade. Track down mysterious bugs, write documentation and refactor code for cleaner design and maintainability.',
+        'Collaborate with team to develop a complete overhaul for ePublishing’s admin panel (React, Typescript, Graphql). Write code with careful consideration for maintainability years down the road. Consult with team lead on architectural decisions.',
+        'Lead company in adoption of Typescript for new and legacy systems. Advocate for the benefits of type safety. Consult with team members on Typescript related questions.',
+        'Mentor junior developers with software design, style and architectural decisions.'
+      ],
+    },
+
+    {
+      company: 'Mountain Tech Media',
+      title: 'Co-Owner and Lead Software Developer',
+      date: '2017 - 2018',
+      bullets: [
+        'Deliver customer success by developing, maintaining and administering web applications for clients using Ruby on Rails and React.',
+        'Build team productivity by collaborating closely with a distributed, remote team to deliver valued features to clients.',
+        'Enable flexibility and agility in client applications by maintaining a complete test suite (RSpec) with continuous integration service.',
+        'Ensure consistent production environments by creating Ansible playbooks to enable consistent server provisioning and configuration. Deploy applications to production (Capistrano) to Digital Ocean, Heroku and Amazon Web Services.',
+      ],
+    },
+
+    {
+      company: 'Berea College',
+      title: 'Technology and Data Systems Analyst',
+      date: '2014 - 2018',
+      bullets: [
+        'Overhaul organization’s culture surrounding evidence based decision making by leading the development and operation of Ruby on Rails based accreditation web app.',
+        'Enable agile based development by maintaining a robust test suite and deployment tools (Capistrano) to automate frequent deployments.',
+        'Mentor and lead team of student developers to provide timely client support and quickly develop new features.',
+        'Enable evidence based transformation by generating insightful analysis of organizational data using Python.'
+      ],
+    },
+  ]
+  return <section
+    className="experience resume-section p-3 p-lg-5 d-flex justify-content-center"
     id="experience"
   >
     <div className="w-100">
       <h2 className="mb-5">Experience</h2>
-
-      <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-        <div className="resume-content">
-          <h3 className="mb-0">Senior Web Developer</h3>
-          <div className="subheading mb-3">Intelitec Solutions</div>
-          <p>
-            Bring to the table win-win survival strategies to ensure
-            proactive domination. At the end of the day, going forward, a
-            new normal that has evolved from generation X is on the runway
-            heading towards a streamlined cloud solution. User generated
-            content in real-time will have multiple touchpoints for
-            offshoring.
-          </p>
-        </div>
-        <div className="resume-date text-md-right">
-          <span className="text-primary">March 2013 - Present</span>
-        </div>
-      </div>
-
-      <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-        <div className="resume-content">
-          <h3 className="mb-0">Web Developer</h3>
-          <div className="subheading mb-3">Intelitec Solutions</div>
-          <p>
-            Capitalize on low hanging fruit to identify a ballpark value
-            added activity to beta test. Override the digital divide with
-            additional clickthroughs from DevOps. Nanotechnology immersion
-            along the information highway will close the loop on focusing
-            solely on the bottom line.
-          </p>
-        </div>
-        <div className="resume-date text-md-right">
-          <span className="text-primary">December 2011 - March 2013</span>
-        </div>
-      </div>
-
-      <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-        <div className="resume-content">
-          <h3 className="mb-0">Junior Web Designer</h3>
-          <div className="subheading mb-3">Shout! Media Productions</div>
-          <p>
-            Podcasting operational change management inside of workflows to
-            establish a framework. Taking seamless key performance
-            indicators offline to maximise the long tail. Keeping your eye
-            on the ball while performing a deep dive on the start-up
-            mentality to derive convergence on cross-platform integration.
-          </p>
-        </div>
-        <div className="resume-date text-md-right">
-          <span className="text-primary">July 2010 - December 2011</span>
-        </div>
-      </div>
-
-      <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
-        <div className="resume-content">
-          <h3 className="mb-0">Web Design Intern</h3>
-          <div className="subheading mb-3">Shout! Media Productions</div>
-          <p>
-            Collaboratively administrate empowered markets via plug-and-play
-            networks. Dynamically procrastinate B2C users after installed
-            base benefits. Dramatically visualize customer directed
-            convergence without revolutionary ROI.
-          </p>
-        </div>
-        <div className="resume-date text-md-right">
-          <span className="text-primary">September 2008 - June 2010</span>
-        </div>
-      </div>
+      {
+        sections.map((section, i) => <Section key={i} {...section}/>)
+      }
     </div>
   </section>
+}
+
+const Section = ({company, title, date, bullets}) => (
+
+  <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+    <div className="resume-content">
+      <h3 className="mb-0">{title}</h3>
+      <div className="subheading mb-3">{company}</div>
+      <ul>
+        {bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
+      </ul>
+    </div>
+    <div className="resume-date text-md-right">
+      <span className="text-primary">{date}</span>
+    </div>
+  </div>
 )
 
 export default Experience
