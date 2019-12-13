@@ -46,13 +46,17 @@ const Projects = () => {
   ]
   return (
     <section
-      className="projects p-3 p-lg-5"
+      className="p-3 p-lg-5"
       id="projects"
     >
+      <h2>Projects</h2>
 
-      {
-        projects.map((project, i) => <Project key={i} {...project} />)
-      }
+      <p>I work on side projects in my spare time primarily to learn new concepts. Here are some of my more recent ones.</p>
+      <div className="projects">
+        {
+          projects.map((project, i) => <Project key={i} {...project} />)
+        }
+      </div>
     </section>
   )
 }
