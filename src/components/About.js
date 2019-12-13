@@ -23,10 +23,11 @@ const About = () => {
       </p>
       <div className="social-icons">
         {config.socialLinks.map(social => {
-          const { icon, url } = social;
+          const { icon, url, name } = social;
           return (
             <a key={url} href={url}>
-              <i className={`fab ${icon}`}></i>
+              <i className={`fab ${icon}`}  aria-hidden="true"></i>
+              {name}
             </a>
           );
         })}
