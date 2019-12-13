@@ -9,8 +9,8 @@ const About = () => {
   >
     <div className="w-100">
       <h1 className="mb-0 about__header">
-        <span>{config.firstName}</span>
-        <span className="text-primary">{config.lastName}</span>
+        <span className="about__first-name">{config.firstName}</span>
+        <span className="about__last-name text-primary">{config.lastName}</span>
       </h1>
       <div className="subheading mb-5">
         <a href={`mailto:${config.email}`}>{config.email}</a>
