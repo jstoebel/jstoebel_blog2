@@ -18,6 +18,9 @@ const About = () => {
       <p className="lead mb-5">
         I am software developer specalizing in creating software systems built with Ruby on Rails, Typescript/Javascript and React and, most importantly, people!
       </p>
+      <p className="lead mb-5">
+        I'm also a co-panelist on a little podcast called <a href='https://www.greaterthancode.com/'>Greater Than Code</a>
+      </p>
       <div className="social-icons">
         {config.socialLinks.map(social => {
           const { icon, url } = social;
