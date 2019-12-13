@@ -7,10 +7,10 @@
 }
 
 a {
-  color: $primary;
+  color: $forest-green;
   &:hover,
   &:focus,
   &:active {
-    color: darken($primary, 15%);
+    color: darken($forest-green, 15%);
   }
 }

@@ -10,6 +10,8 @@ const Values = () => (
 
     <h3>Take care of your humans</h3>
     <p>There is a prevailing narrative among developers that we are like Vulcans, perfectly logical and free from pesky emotions. In reality, emotions are at the core of the human existence -- they drive our basic neurological functions. If someone on your team is made to feel unworthy, unintelligent, unappreciated that has tangible consequences for your team. Its not something they can just "get over" or "grow a thicker skin" about. To say otherwise is to deny basic psychology. We are all responsible for taking care of our fellow humans.</p>
+    
+    <p>Speaking of which, I am a co-panelist on the <a href="https://www.greaterthancode.com/">Greater Than Code Podcast</a>. Each week we delve into discussions surrounding the human side of tech.</p>
 
     <h3>Continuous Learner</h3>
     <p>Tech is changing fast. The people that make it are changing even faster. Whether its a new front end framework, a deployment tool, or your co-worker's favorite new TV show, we need to have the curiosity to absorb new knowledge and skills to adapt to a quickly changing world. Not because our boss told us to, or because we're chasing a bigger paycheck. Because we are genuinely curious. Because we have questions about the world that follow us around until we find the answers.</p>
