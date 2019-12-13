@@ -19,8 +19,6 @@ const IndexPage = () => (
       <hr className="m-0" />
       <Values />
       <hr className="m-0" />
-      <Values />
-      <hr className="m-0" />
       <Projects />
     </div>
   </Layout>
