@@ -55,3 +55,39 @@
     }
   }
 }
+
+.internal-header {
+  background-color: $primary;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+
+  &__right {
+    align-self: center;
+  }
+
+  &__headshot {
+    width: 100px
+  }
+
+  &__links {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  &__link-item {
+    display: inline;
+    margin-right: 10px
+  }
+  &__link {
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: #FFF;
+    
+    &:hover {
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+}

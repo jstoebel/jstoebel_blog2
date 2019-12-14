@@ -8,7 +8,6 @@ body {
 @media (min-width: 992px) {
   body {
     padding-top: 0;
-    padding-left: $sidebar-base-width;
   }
 }
 
@@ -77,4 +76,8 @@ p.lead {
       color: $primary;
     }
   }
+}
+
+.main-body {
+  padding-left: $sidebar-base-width;
 }

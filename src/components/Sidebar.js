@@ -6,13 +6,6 @@ import headshot from '../assets/images/headshot.jpg';
 import config from '../../config';
 
 const Sidebar = () => {
-  const tabs = [
-      { content: 'About', href: 'about' },
-      { content: 'Experience', href: 'experience' },
-      { content: 'Values', href: 'values' },
-      { content: 'Projects', href: 'projects' }
-    ]
-
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
@@ -46,12 +39,12 @@ const Sidebar = () => {
       </button>
       <div className={`${mobileNavOpen ? '' : 'collapse'} navbar-collapse`} id="navbarSupportedContent">
         <Scrollspy
-          items={tabs.map(s => s.href)}
+          items={config.tabs.map(s => s.href)}
           currentClassName="active"
           offset={-300}
           className="navbar-nav"
         >
-          {tabs.map((tab, i) => {
+          {config.tabs.map((tab, i) => {
             const { href, content } = tab;
             return (
               <li className="nav-item" key={href}>

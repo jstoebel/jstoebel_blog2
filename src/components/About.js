@@ -16,7 +16,7 @@ const About = () => {
         <a href={`mailto:${config.email}`}>{config.email}</a>
       </div>
       <p className="lead mb-5">
-        I am a software developer specalizing in creating systems built with Ruby on Rails, Typescript/Javascript, React and, most importantly, people!
+        {config.bio}
       </p>
       <p className="lead mb-5">
         I'm also a co-panelist on a little podcast called <a href='https://www.greaterthancode.com/'>Greater Than Code</a>
