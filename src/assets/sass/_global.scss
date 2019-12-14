@@ -80,6 +80,10 @@ p.lead {
 
 .main-body {
   padding-left: $sidebar-base-width;
+
+  @media (max-width: 992px) {
+    padding-left: 0;
+  }
 }
 
 .internal-layout {
