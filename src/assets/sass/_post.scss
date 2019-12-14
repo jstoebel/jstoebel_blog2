@@ -1,6 +1,11 @@
 .blog-post {
-  padding: 20px;
+  padding: 0 20px 20px;
   &__title {
     font-size: 2em;
+    line-height: 1.5;
+  }
+
+  &__date {
+    font-style: italic;
   }
 }

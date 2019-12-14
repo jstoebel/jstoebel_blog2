@@ -1,6 +1,7 @@
 import React from 'react';
 
 import config from '../../config';
+import SocialIcons from '../components/SocialIcons'
 
 const About = () => {
   return <section
@@ -21,17 +22,7 @@ const About = () => {
       <p className="lead mb-5">
         I'm also a co-panelist on a little podcast called <a href='https://www.greaterthancode.com/'>Greater Than Code</a>
       </p>
-      <div className="social-icons">
-        {config.socialLinks.map(social => {
-          const { icon, url, name } = social;
-          return (
-            <a key={url} href={url}>
-              <i className={`fab ${icon}`}  aria-hidden="true"></i>
-              {name}
-            </a>
-          );
-        })}
-      </div>
+      <SocialIcons />
     </div>
   </section>
 }

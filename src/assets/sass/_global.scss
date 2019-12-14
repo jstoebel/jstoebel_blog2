@@ -81,3 +81,74 @@ p.lead {
 .main-body {
   padding-left: $sidebar-base-width;
 }
+
+.internal-layout {
+
+  &__content,
+  &__footer {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+  }
+}
+
+.next-prev {
+  .prev {
+    float: left;
+
+    &__arrow {
+      order: 0
+    }
+
+    &__title {
+      order: 1
+    }
+  }
+
+  .next {
+    float: right;
+  }
+
+  .prev,
+  .next {
+    display: flex;
+
+    &:hover {
+      text-decoration: none;
+    }
+    &__title {
+      margin: 0 10px;
+      line-height: .5;
+      display: inline;
+      font-size: 1.5em;
+    }
+
+    &__arrow {
+      align-self: center;
+    }
+  }
+}
+
+.internal-layout__footer {
+  margin-top: 50px;
+
+  &-headshot-bio {
+    display: flex
+  }
+
+  &-headshot {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  &-social {
+    margin-top: 20px;
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

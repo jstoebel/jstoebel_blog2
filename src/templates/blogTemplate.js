@@ -1,14 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import InternalLayout from '../components/InternalLayout'
-import Sidebar from '../components/Sidebar';
 
 export default function Template({
   data,
   pageContext: { next, prev }
 }) {
-  console.log("TCL: prev", prev)
-  console.log("TCL: next", next)
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
@@ -23,9 +20,28 @@ export default function Template({
           />
         </div>
       </div>
-
-      <div>{`prev is ${prev && prev.frontmatter.title}`}</div>
+      <div className="next-prev">
+        <NextPrev direction="prev" article={prev} />
+        <NextPrev direction="next" article={next} />
+      </div>
     </InternalLayout>
+  )
+}
+
+const NextPrev = ({direction, article}) => {
+  const bem = (element='') => element ? `${direction}__${element}` : direction
+
+  if (!article || !article.frontmatter) return <div className={bem()}></div>
+
+  const {path, title} = article.frontmatter;
+
+  const arrowDirection = direction === 'prev' ? 'left' : 'right'
+  return (
+    <a href={path} className={bem()}>
+      <h1 className={bem('title')}>{title}</h1>
+      <i className={[bem('arrow'), 'fas', `fa-arrow-${arrowDirection}`, 'fab'].join(' ')} aria-hidden="true"></i>
+    </a>
+
   )
 }
 
