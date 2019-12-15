@@ -24,7 +24,7 @@ const Experience = () => {
         'Deliver customer success by developing, maintaining and administering web applications for clients using Ruby on Rails and React.',
         'Build team productivity by collaborating closely with a distributed, remote team to deliver valued features to clients.',
         'Enable flexibility and agility in client applications by maintaining a complete test suite (RSpec) with continuous integration service.',
-        'Ensure consistent production environments by creating Ansible playbooks to enable consistent server provisioning and configuration. Deploy applications to production (Capistrano) to Digital Ocean, Heroku and Amazon Web Services.',
+        'Ensure consistent production environments by creating Ansible playbooks to enable consistent server provisioning and configuration. Maintain deploy toolchain (Capistrano) for seamless deploys.',
       ],
     },
 
