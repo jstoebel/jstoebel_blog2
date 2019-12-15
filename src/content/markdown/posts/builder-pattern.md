@@ -4,7 +4,7 @@ date: "2019-06-30"
 title: "The Builder Pattern"
 ---
 
-_This is a post about the Builder Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)._ 
+***This is a post about the Builder Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns).***
 
 In this example we are writing software for a company that builds custom vintage cars. The company needs a way to describe the details of each order. To construct a car object we could do it by providing all of the parameters to `new`...
 

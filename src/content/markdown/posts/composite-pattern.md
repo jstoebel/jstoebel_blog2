@@ -4,14 +4,15 @@ date: "2019-07-13"
 title: "The Composite Pattern"
 ---
 
-_This is a post about the Composite Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)._ 
+**This is a post about the Composite Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)**
 
 Problem borrowed from [here](https://refactoring.guru/design-patterns/composite)
 
 Let's say that I am building inventory tracking software for a company that has to package and ship complex orders of products. An order is a box. A box can contain other boxes or products. I need a way to get the total weight and inventory count of any given box. The composite pattern let's me strucutre all of this as a tree. Both the `Box` and `Product` type respond to the `weight` and `item_count` method. Products know their own weight and that they have an item count of 1 (duh). Boxes ask all of their direct children their weight and item_count and return the sum. Recursion!
 
 First, here's how it would look without the composite pattern. Bleh!
-```
+
+```ruby
 require './v1/box'
 require './v1/product'
 
@@ -49,7 +50,7 @@ The composite pattern is convenient because we have a common interface for getti
 
 The above code gets the job done, but its awfully verbose. Defining a product on one line and then telling it what box it goes in is tedious. Instead lets use the builder pattern and blocks to specify how we want things structured.
 
-```
+```ruby
 require './v2/shipment'
 
 s = Shipment.new do
@@ -76,7 +77,7 @@ puts "shipment: #{s.item_count} item(s), #{s.weight} lbs"
 
 Ah, much better! Now we have a `Shipment` instance which represents all of the items in a shipment. `Shipment` has two public methods `box` and `product` to let us define those items
 
-```
+```ruby
   def box(&block)
     box = Box.new
     parent.pack box
@@ -92,8 +93,8 @@ Ah, much better! Now we have a `Shipment` instance which represents all of the i
 
 Both of those methods use a method called `add_node` to add keep track of the item
 
-```
-  # ads a node to the shipment tree.
+```ruby
+  # adds a node to the shipment tree.
   # node: a node like object (Box or Product)
   def add_node(node, &block)
     # apppend node to list of nodes

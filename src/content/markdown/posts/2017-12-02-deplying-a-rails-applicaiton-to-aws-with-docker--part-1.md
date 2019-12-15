@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Deplying a Rails Applicaiton to AWS with Docker  Part 1"
-path: "/deplying-a-rails-applicaiton-to-aws-with-docker--part-1"
+title: "Deploying a Rails Applicaiton to AWS with Docker  Part 1"
+path: "/deploying-a-rails-applicaiton-to-aws-with-docker--part-1"
 date: 2017-12-02 12:55:08
 comments: true
-description: "Deplying a Rails Applicaiton to AWS with Docker- Part 1"
+description: "Deploying a Rails Applicaiton to AWS with Docker- Part 1"
 keywords: ""
 categories:
 
@@ -13,7 +13,7 @@ tags:
 ---
 
 
-# setting up dev enviornment
+## setting up dev enviornment
 
  - followed this tutorial: https://docs.docker.com/compose/rails/
  - need to mount my host system to get at source code:
@@ -23,17 +23,17 @@ tags:
 
 I've been working with Docker and Rails for a bit now and really love it. It makes for huge wins both in terms of setting up your development environment and deploying to AWS, but the steps to get started aren't always obvious. That's why I decided to document my steps in a series of blog articles. In this first part, I'll go over how to set up a development environment.
 
-# My assumptions
+## My assumptions
  - you have a basic familiarity with Rails and how to set up a project
  - You know how to read YAML
  - You have Rails and Yarn installed on your local machine
  - You have heard of Docker before and at least vaguely have a sense of what it does, even if you've never used it. (If not that's ok, spend a few minutes Googling and then come back.)
 
-# Why would I want to do this?
+## Why would I want to do this?
 
 Recently there was something strange going on with my instillation of either Postgres or Homebrew on my Macbook. Rather than working to get the bottom of it for the umpteenth time I decided to just run my Rails project locally in a Docker container.
 
-# Start your rails project
+## Start your rails project
 
 To keep this example as simple as possible I am going to spin up a new Rails project and then get it running inside a container. Let's stat by creating a new Rails project:
 
@@ -51,11 +51,11 @@ rails g scaffold friend name:string
 
 More output verifies that my scaffold files have been generated. Normally at this point my next step would be to `bundle exec rake db:migrate`, But we're not trying to use Postgres on my local machine. I want to use the postgres image inside of a Docker container.
 
-# Set up Docker
+## Set up Docker
 
 Let's get set up to run this app inside Docker. First in your root directory create the file `Dockerfile`. Then inside that file drop the following:
 
-```
+```docker
 FROM ruby:2.4
 
 # basic dependencies
@@ -86,13 +86,11 @@ RUN bundle install
 ADD . /docker_test
 ```
 
-
-
 Let's step through this file chunk by chunk. The first line `FROM ruby:2.4` indicates the base image that you're docker container will be staring from. In this case, your pulling in Ruby 2.4 into your container. The next several `RUN` commands through to `RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install` are installing dependencies into the container. This gets us setup for the things we will need in a realistic rails project. Things like Capybara and Selenium for integration tests. I'll have more to say about this file in a minute.
 
 Next create a directory `config/docker/development`. In that directory create the file `docker-compose.yml`. Inside that file place the following:
 
-```
+```yaml
 version: '3'
 services:
   db:
@@ -112,7 +110,7 @@ services:
       - db
 ```
 
-# Build container and set up project
+## Build container and set up project
 
 Next we'll get the environment set up:
 
@@ -167,11 +165,11 @@ docker-compose -f config/docker/development/docker-compose.yml --project-directo
 
 This tells your service labeled `web` to run the given rake commands. Sweet, our project is up and running!
 
-# Using rake to do less typing
+## Using rake to do less typing
 
 Typing out `docker-compose -f blah blah blah` is tiersome! Let's make a rake task to make it easier:
 
-```
+```ruby
 desc 'ensure no sneaky rails envs.'
 task :assert_env do
   raise 'Invalid env' unless /production|development/ =~ Rails.env

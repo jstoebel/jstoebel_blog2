@@ -18,7 +18,7 @@ One thing I've spent a time refactoring is when a classes' private methods becom
 
 Let's consider a class that's responsible for getting some data from a remote server. Its going to run a command over ssh which will result in a file on the remote machine being created. Depnding on the reuslt of that ssh command the class then `scp`s the file down and then removes the remote file over ssh to clean things up. I'm going to omit the implementation of the methods since its not important for this example. 
 
-```
+```ruby
 class CopyDb
 
   def initialize
@@ -58,7 +58,7 @@ end
 
 This of course is a very simplified version of what this class would actually look like, but as I was working on it, and trying to write the tests things started getting hairy. I of course didn't want to actually have my tests hit the remote server, but to test all of the possible outcomes I need to set up the appropriate stubbed output in each test. This quickly started to feel tedious. I realized that I was trying to represent two things (the copying of the database and the remote server) in one class. What if I set up a new class called `Server` that acted as a collaborator class and handled all of the interactions with the remote server? It would provide two public methods `ssh` and `scp` and would return a `Struct` represnting the remote output and if it exited with out error:
 
-```
+```ruby
 # frozen_string_literal: true
 
 require 'ostruct'

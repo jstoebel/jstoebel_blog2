@@ -4,13 +4,12 @@ date: "2019-01-30"
 title: "Testing mixins in Ruby"
 ---
 
-# Testing mixins in Ruby
 
 I've started working on [this tutorial](http://tutorials.jumpstartlab.com/topics/decorators.html) to learn more about the decorator pattern. One interesting topic that came up was the concept of creating decorations which can be mixed in to a decorator, rather than using inheritance. Wanting to use TDD where ever possible I set out to write some tests first. I got stuck there for a bit, so I thought I should write out my solution here.
 
 Here is a module of a couple deocrations that could be mixed in to a decorator.
 
-```
+```ruby
 module IconLinkDecorations
   def delete_icon(link_text = nil)
     h.link_to icon_tag('cancel.png', link_text),
@@ -39,7 +38,7 @@ Its a few methods related to rendering an icon related to resource reciving the 
 
 After some research, here's what I came up with: **create a dead simple class that will consume the module and then test that**. For example:
 
-```
+```ruby
 class DummyObject
   include IconLinkDecorations
   def initialize(helper_double, object_double)
@@ -61,7 +60,7 @@ This is `DummyObject` which we will be feeding our decorations and then making s
 
 Next, we can create mocks for the expected behavior of `h` and `object` and then just ensure that the proper messages are passed with the expected arguments. For example:
 
-```
+```ruby
 describe IconLinkDecorations do
   let(:helper_double) { double('helper_double') }
   let(:object_double) { 'my object' }

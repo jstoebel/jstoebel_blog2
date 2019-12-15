@@ -12,7 +12,7 @@ What follows is not a tutorial on how to do this (there are plenty of those alre
 
 You need a file in your root called `apollo.config.js`. For example:
 
-```
+```ruby
 module.exports = {
   client: {
     service: {

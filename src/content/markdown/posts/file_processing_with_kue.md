@@ -28,14 +28,14 @@ Kue is a library that leverages the power of Redis which gives us a way for sepe
 
 We first create a job queue:
 
-```
+```javascript
 import kue from 'kue'
 const jobs = kue.createQueue();
 ```
 
 When a user uploads their file, we are ready to add a job to the queue:
 
-```
+```javascript
 const job = jobs.create('svg_trace', {imagePath: fullImagePath});
 ```
 
@@ -43,7 +43,7 @@ const job = jobs.create('svg_trace', {imagePath: fullImagePath});
 
 Next I will probobly want to attach some event listeners to my job. This will allow the parent process to recive notifications when key events in the job occur. 
 
-```
+```javascript
 job.on( 'progress', (progress: number, svg: string) => {
   console.log( 'Job complete' );
   image.update({svg}).then(() => {
@@ -66,7 +66,7 @@ You may have noticed that there is an event called `complete` and are asking you
 
 Finally we have to save the job
 
-```
+```javascript
 job.save();
 ```
 
@@ -74,7 +74,7 @@ job.save();
 
 In a different file, I'm going to create another job queue to process jobs
 
-```
+```javascript
 import kue from 'kue';
 import traceImage from './src/lib/traceImage';
 

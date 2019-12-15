@@ -37,7 +37,7 @@ A `Task` is going to be a stateless functional component and accepts the followi
 
 Here's a simplified implementation
 
-```
+```jsx
 import * as React from 'react';
 import StartButton from './StartButton'
 import StopButton from './StopButton'
@@ -76,10 +76,11 @@ export default Task;
 
 Here's what this component does: if the task is running a pomodor0 (determined by comparing the task id with the `runningTask` value in the redux store) the task will be rendering the timer and a `StopButton`, otherwise a `StartButton`.
 
-# `StopButton` and `StartButton`
+# StopButton and StartButton
 
 The `StopButton` isn't much
-```
+
+```tsx
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import IconButton from '@material-ui/core/IconButton';
@@ -102,7 +103,8 @@ export default StopButton
 It accepts one prop, a function called `stop` which tells the redux store that the current task isn't running anymore. I'm using Google's material theme and a font awesome icon. When the icon is clicked the function is fired. That's pretty much it!
 
 The `StartButton` is quite similar. When the start button is click, the passed `start` function tells the redux store that the current task wants to start a pomodoro.
-```
+
+```tsx
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import IconButton from '@material-ui/core/IconButton';
@@ -125,7 +127,7 @@ export default StartButton
 
 Those two buttons let us toggle a task's state between running a pomodoro and not. We also can have multiple tasks but only one can be running a pomodoro at a given time.
 
-# `Timer`
+# Timer
 
 Finally we come to the `Timer` component itself. The `Timer` is responsible for displaying the time remaining and playinga sound when its done.
 
@@ -135,7 +137,8 @@ It accepts two props: the `minutes` and `seconds` of the pomodoro. Since the com
  - if the timer is `finished`
 
 Here's what it looks like
-```
+
+```tsx
 import * as React from 'react'
 import PomodoroI from '../../interfaces/pomodoro'
 import * as moment from 'moment';

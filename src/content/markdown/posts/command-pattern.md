@@ -4,13 +4,13 @@ date: "2019-07-13"
 title: "The Command Pattern"
 ---
 
-_This is a post about the Command Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)._ 
+**This is a post about the Command Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns).**
 
 The command pattern seeks to separate an object that performs an action from the commands that it will receive.
 
 Imagine that we have a simple HVAC system. We can toggle between modes (heat and cool) and we can change the desired temperature.
 
-```
+```ruby
 class HVAC
   attr_accessor :desired_temp, :mode
   def initialize
@@ -29,7 +29,8 @@ end
 ```
 
 We also have a wall panel class that is aware of the HVAC it controls. Users wanting to interact with the hvac do so via the wall panel. (This is an example of delegation, btw).
-```
+
+```ruby
 class WallPanel
   def initialize(hvac)
     @hvac = hvac
@@ -65,7 +66,7 @@ This seems to work just fine. But what happens when there is not a simple one to
 
 In our revised version, a wall panel can have an arbitrary number of buttons each of which is wired to a command. The wall panel and button are not concerend with who will recieve the command or what that command will do. In a complex system this decoupling may be useful (but like all patterns it might also be over engineered -- knowing when to use a pattern is an art in itself!)
 
-```
+```ruby
 class Command
   def initialize(hvac)
     @hvac = hvac
@@ -119,7 +120,7 @@ end
 
 If for example we want to create a minimal wall panel that only lets the user toggle between heat and cool, but not change the temp:
 
-```
+```ruby
 hvac2 = HVAC.new
 
 puts "mode is #{hvac2.mode}" # heat

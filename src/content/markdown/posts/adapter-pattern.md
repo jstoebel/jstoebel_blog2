@@ -4,6 +4,8 @@ date: "2019-06-10"
 title: "The Adapter Pattern"
 ---
 
+**This is a post about the Adapter Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)**
+
 The adapter pattern is a way to make two objects work together even if they don't have compatable interfaces. An obivous analogy can be found with most people who use a Macintosh computer. I have a Macbook with usb-c ports and a monitor that uses HDMI. My mac can't talk to my monitor as is. It needs an adapter to bridge the gap!
 
 # Color Cannon

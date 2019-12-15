@@ -4,7 +4,7 @@ date: "2019-10-16"
 title: "The Factory Pattern"
 ---
 
-_This is a post about the Factory Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns)._ 
+This is a post about the Factory Pattern and is from my study of [design patterns](https://github.com/jstoebel/design_patterns).
 
 The Factory Pattern provides a way for a client to instantiate different objects without having to know which they need. The objective is to provide a simple interface that doesn't need to change when new classes are added or removed.
 
