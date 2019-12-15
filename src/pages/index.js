@@ -21,6 +21,8 @@ const IndexPage = () => (
       <Values />
       <hr className="m-0" />
       <Projects />
+      <hr className="m-0" />
+      <BlogIndex />
     </div>
   </Layout>
 );
