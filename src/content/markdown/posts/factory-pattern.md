@@ -1,5 +1,5 @@
 ---
-path: "factory-pattern"
+path: "/factory-pattern"
 date: "2019-10-16"
 title: "The Factory Pattern"
 ---

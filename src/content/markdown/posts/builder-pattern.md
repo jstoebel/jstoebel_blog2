@@ -1,5 +1,5 @@
 ---
-path: "builder-pattern"
+path: "/builder-pattern"
 date: "2019-06-30"
 title: "The Builder Pattern"
 ---

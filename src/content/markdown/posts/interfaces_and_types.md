@@ -1,5 +1,5 @@
 ---
-path: "interfaces-and-types"
+path: "/interfaces-and-types"
 date: "2019-07-14"
 title: "Interfaces and Types"
 ---

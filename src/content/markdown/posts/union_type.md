@@ -1,5 +1,5 @@
 ---
-path: "union-type"
+path: "/union-type"
 date: "2019-10-16"
 title: "The Union Type in Typescript"
 ---

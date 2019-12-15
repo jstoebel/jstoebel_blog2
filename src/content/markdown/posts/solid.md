@@ -1,5 +1,5 @@
 ---
-path: "solid-ruby-notes"
+path: "/solid-ruby-notes"
 date: "2019-11-16"
 title: "Notes on SOLID Ruby"
 ---

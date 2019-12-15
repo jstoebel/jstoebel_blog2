@@ -1,5 +1,5 @@
 ---
-path: "adapter-pattern"
+path: "/adapter-pattern"
 date: "2019-06-10"
 title: "The Adapter Pattern"
 ---

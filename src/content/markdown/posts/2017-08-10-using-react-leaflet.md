@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using react leaflet"
-path: using-react-leaflet
+path: "/using-react-leaflet"
 date: 2017-08-10 15:10:57
 comments: true
 description: "Using react-leaflet"
@@ -14,7 +14,7 @@ tags:
 
 For my new [nightlife app](https://github.com/jstoebel/nightlife) I am using [`leaflet.js`](http://leafletjs.com/) to handle marking search results on a map. Leaflet was an immediate win for this project because so much comes, basically for free right out of the box: you get beautiful looking maps, markers, and pop ups with hardly anything to configure. What could be better? Oh I know, how about wrapping this functionality in React components! That way I can render a series of markers on a map with something like:
 
-```
+```javascript
 <Map bounds={this.state.corners}>
   <TileLayer
     url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'

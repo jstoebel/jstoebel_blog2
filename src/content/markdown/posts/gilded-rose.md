@@ -1,5 +1,5 @@
 ---
-path: "gilded-rose"
+path: "/gilded-rose"
 date: "2019-11-16"
 title: "The Gilded Rose Kata"
 ---

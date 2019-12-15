@@ -1,5 +1,5 @@
 ---
-path: "any-vs-unknwon"
+path: "/any-vs-unknwon"
 date: "2019-07-17"
 title: "Any Vs Unknown"
 ---

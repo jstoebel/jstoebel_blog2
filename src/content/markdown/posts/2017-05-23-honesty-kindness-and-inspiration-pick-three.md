@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Honesty, Kindness and Inspiration: Pick Three"
-path: honesty-kindness-and-inspiration-pick-three
+path: "/honesty-kindness-and-inspiration-pick-three"
 date: 2017-05-23 08:16:56
 comments: true
 description: "Honesty, Kindness and Inspiration: Pick Three"

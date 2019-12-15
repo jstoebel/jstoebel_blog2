@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting React and D3 to Play Nice"
-path: getting-react-and-d3-to-play-nice
+path: "/getting-react-and-d3-to-play-nice"
 date: 2017-04-01 10:48:20
 comments: true
 description: "Getting React and D3 to Play Nice"

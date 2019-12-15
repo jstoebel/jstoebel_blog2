@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deplying a Rails Applicaiton to AWS with Docker  Part 1"
-path: deplying-a-rails-applicaiton-to-aws-with-docker--part-1
+path: "/deplying-a-rails-applicaiton-to-aws-with-docker--part-1"
 date: 2017-12-02 12:55:08
 comments: true
 description: "Deplying a Rails Applicaiton to AWS with Docker- Part 1"

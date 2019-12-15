@@ -1,5 +1,5 @@
 ---
-path: "type-inference"
+path: "/type-inference"
 date: "2019-07-14"
 title: "Type Inference"
 ---

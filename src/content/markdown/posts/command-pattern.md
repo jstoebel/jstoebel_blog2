@@ -1,5 +1,5 @@
 ---
-path: "command-pattern"
+path: "/command-pattern"
 date: "2019-07-13"
 title: "The Command Pattern"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cleanse Your Batavia Test Output Using This One Weird Trick"
-path: handling-test-output-in-batavia
+path: "/handling-test-output-in-batavia"
 date: 2017-01-13 11:16:23
 comments: true
 description: "Cleanse Your Batavia Test Output Using This One Weird Trick"
@@ -18,7 +18,7 @@ Batavia has a great framework for running tests. Essentially you write Python th
 
 The existing transform functions already perform several transforms on output. Asking a writer of a test pass directly into the assertion which parts to skip could get messy. Instead I wrapped it up state into two new classes, `JSCleaner` and `PYCleaner`.
 
-{% highlight python %}
+```python
 class JSCleaner:
 
     def __init__(self, err_msg=True, memory_ref=True, js_bool=True, decimal=True, float_exp=True, complex_num=True,
@@ -45,13 +45,13 @@ class PYCleaner:
         """
         ...
 
-{% endhighlight %}
+```
 
 This way, all transforms are performed be default. Then inside assertions that need to perform those transformations we change them to call the `cleanse` method instead of calling `cleanse_javascript` and `cleanse_python`.
 
 I also created a decorator providing a simple interface for injecting a `JSCleaner` and `PYCleaner` object into tests that have needs other than the default.
 
-{% highlight python %}
+```python
 
   def transforms(**transform_args):
       """
@@ -80,11 +80,11 @@ I also created a decorator providing a simple interface for injecting a `JSClean
 
       return real_decorator
 
-{% endhighlight %}
+```
 
 Then if you have a test that needs to skip any transformations:
 
-{% highlight python %}
+```python
 
   @transforms(
       js_bool=False,
@@ -101,4 +101,4 @@ Then if you have a test that needs to skip any transformations:
       # the cleaner objects are passed into the assertion.
       self.assertCodeExecution(tests, js_cleaner=js_cleaner, py_cleaner=py_cleaner)
 
-{% endhighlight %}
+```

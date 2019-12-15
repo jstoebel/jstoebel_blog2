@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Lesson in Refactoring Complex Classes in Ruby"
-path: a-lesson-in-refactoring-complex-classes-in-ruby
+path: "/a-lesson-in-refactoring-complex-classes-in-ruby"
 date: 2018-08-30 10:51:05
 comments: true
 description: "A Lesson in Refactoring Complex Classes in Ruby"

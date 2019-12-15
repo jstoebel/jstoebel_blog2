@@ -1,5 +1,5 @@
 ---
-path: "apollo-code-gen"
+path: "/apollo-code-gen"
 date: "2019-04-17"
 title: "Apollo Code Gen"
 ---

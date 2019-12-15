@@ -1,5 +1,5 @@
 ---
-path: "timer-component"
+path: "/timer-component"
 date: "2019-01-09"
 title: "Building a Timer in React"
 ---

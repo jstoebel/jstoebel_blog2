@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jumping Back In: My New Side Project"
-path: jumping-back-in-my-new-side-project
+path: "/jumping-back-in-my-new-side-project"
 date: 2018-08-03 12:58:18
 comments: true
 description: "Jumping Back In: My New Side Project"

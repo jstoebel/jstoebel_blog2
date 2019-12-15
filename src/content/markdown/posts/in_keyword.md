@@ -1,5 +1,5 @@
 ---
-path: "in-keyword"
+path: "/in-keyword"
 date: "2019-07-14"
 title: "The Keyword `in`"
 ---

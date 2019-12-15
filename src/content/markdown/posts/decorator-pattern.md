@@ -1,5 +1,5 @@
 ---
-path: "decorator-pattern"
+path: "/decorator-pattern"
 date: "2019-09-12"
 title: "The Decorator Pattern"
 ---

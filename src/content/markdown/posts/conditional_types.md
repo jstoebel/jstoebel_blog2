@@ -1,5 +1,5 @@
 ---
-path: "conditional-types"
+path: "/conditional-types"
 date: "2019-07-29"
 title: "Conditional Types"
 ---

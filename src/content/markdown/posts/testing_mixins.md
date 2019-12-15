@@ -1,5 +1,5 @@
 ---
-path: "testing-mixins"
+path: "/testing-mixins"
 date: "2019-01-30"
 title: "Testing mixins in Ruby"
 ---

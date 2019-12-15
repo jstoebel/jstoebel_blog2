@@ -1,5 +1,5 @@
 ---
-path: "file-processing-with-kue"
+path: "/file-processing-with-kue"
 date: "2019-05-19"
 title: "File Processing With Kue"
 ---

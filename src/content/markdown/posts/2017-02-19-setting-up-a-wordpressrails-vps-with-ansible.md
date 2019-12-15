@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "setting up a wordpress/rails vps with ansible"
-path: setting-up-a-wordpressrails-vps-with-ansible
+path: "/setting-up-a-wordpressrails-vps-with-ansible"
 date: 2017-02-19 15:56:58
 comments: true
 description: "setting up a wordpress/rails vps with ansible"
@@ -21,8 +21,7 @@ There were however a few small issues that caused me a disproportionate level of
 It turns out that 256 Mb of memory isn't enough to install MySQL. You will likely get the error: `invoke-rc.d: initscript mysql, action "start" failed.
  dpkg: error processing package mysql-server-5.5 (--configure):`. To fix this, I increased memory allocation to 1Gb:
 
-{% highlight ruby %}
-
+```ruby
 config.vm.define :node do |node|
     # the droplet to provision
     node.vm.box = "bento/ubuntu-16.04"
@@ -33,8 +32,7 @@ config.vm.define :node do |node|
       vb.memory = "1024"
     end
 end
-
-{% endhighlight %}
+```
 
 ### Which Kernel
 
@@ -45,7 +43,7 @@ __note: part of the following section is a copy/paste of my own words originatin
 
 I am using passenger to serve my app, but letting nginx serve my precompiled assets. I spent a lot of time confused by how to make this work. Here is the config file I am using in `/etc/nginx/sites-enabled/default`
 
-{% highlight nginx %}
+```nginx
 
     server {
         listen 80 default_server;
@@ -94,8 +92,7 @@ I am using passenger to serve my app, but letting nginx serve my precompiled ass
         }
 
     }
-
-{% endhighlight %}
+```
 
 Here I am pointing requests for `/` to my Wordpress install (the variable wp['root_dir'] determines this.) and requests to `/h20-initiative/*` to to my rails app.
 
@@ -103,8 +100,7 @@ I also ran into a strange problem where static assets in my rails app were not b
 
 Then I greped through the log. I searched for one of the assets that wasn't being served and found these lines:
 
-{% highlight nginx %}
-
+```
 2017/03/01 02:02:31 [debug] 28274#28274: *231 test location: "/"
 2017/03/01 02:02:31 [debug] 28274#28274: *231 test location: "robots.txt"
 2017/03/01 02:02:31 [debug] 28274#28274: *231 test location: "favicon.ico"
@@ -112,8 +108,7 @@ Then I greped through the log. I searched for one of the assets that wasn't bein
 2017/03/01 02:02:31 [debug] 28274#28274: *231 test location: ~ "/\.ht"
 2017/03/01 02:02:31 [debug] 28274#28274: *231 test location: ~ "\.(css|gif|ico|jpeg|jpg|js|png)$"
 2017/03/01 02:02:31 [debug] 28274#28274: *231 using configuration "\.(css|gif|ico|jpeg|jpg|js|png)$"
-
-{% endhighlight %}
+```
 
 It looks like the block `"\.(css|gif|ico|jpeg|jpg|js|png)$"` was the matched block and used to determine where to find requests for static assets. The problem is, that's not where those files are! In fact, I don't need to serve any assets from the root directory. I deleted that block, allowing for the intended block to serve my assets.
 
@@ -125,18 +120,17 @@ I want my admin users to have permission to install plugins, themes and updates.
 
 The main site will be served from `/` and the rails app from /h20-initiative. This presents a somewhat tricky problem in how to get urls to point to the right place. For example I have some Javascript that points to an end point in my app:
 
-{% highlight javascript %}
-
+```javascript
 d3.json("/places/active", function(error, activePlaces){
   // do something with the result
 }
-{% endhighlight %}
+```
 
 This works perfectly fine in development but in production the endpoint is at `/h20-initiative/places/active`. How do we consolidate this? I _could_ do all of my app development inside of a vagrant box that's running both my Wordpress install and this app. But that's an awful lot of overhead just to solve a name spacing issue when all I'm trying to do is hack on a rails project and ignore the rest. Instead, I just stored the apps' relative path in an environment variable and then prepend it in paths that need it. For example:
 
 In my Javascript...
 
-{% highlight javascript %}
+```javascript
 
 // in the view attach a variable to the window object:
 :javascript
@@ -147,11 +141,11 @@ In my Javascript...
 d3.json(base_url + "/places/active", function(error, activePlaces){
   // do something with the result
 }
-{% endhighlight %}
+```
 
 For all of my route helpers I can add the relative path in `config/application`
 
-{% highlight ruby %}
+```ruby
 
 Bundler.require(*Rails.groups)
 module Unify
@@ -161,13 +155,12 @@ module Unify
 
   end
 end
-
-{% endhighlight %}
+```
 
 In scss I can use an erb tag and `image_url` to reference an image I want for a
 background
 
-{% highlight scss %}
+```scss
 
 $bg-img: "<%= image_url 'cumberlands.jpg' %>";
 
@@ -175,7 +168,6 @@ body{
   background:url($bg-img);
   // ...
 }
-
-{% endhighlight %}
+```
 
 And that's it! So much easier than having to change my development environment!

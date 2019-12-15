@@ -1,5 +1,5 @@
 ---
-path: "mapped-type-modifiers"
+path: "/mapped-type-modifiers"
 date: "2019-07-14"
 title: "Mapped Type Modifiers"
 ---

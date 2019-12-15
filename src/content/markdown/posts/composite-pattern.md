@@ -1,5 +1,5 @@
 ---
-path: "composite-pattern"
+path: "/composite-pattern"
 date: "2019-07-13"
 title: "The Composite Pattern"
 ---
