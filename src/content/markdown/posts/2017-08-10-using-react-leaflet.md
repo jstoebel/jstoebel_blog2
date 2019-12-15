@@ -14,7 +14,7 @@ tags:
 
 For my new [nightlife app](https://github.com/jstoebel/nightlife) I am using [`leaflet.js`](http://leafletjs.com/) to handle marking search results on a map. Leaflet was an immediate win for this project because so much comes, basically for free right out of the box: you get beautiful looking maps, markers, and pop ups with hardly anything to configure. What could be better? Oh I know, how about wrapping this functionality in React components! That way I can render a series of markers on a map with something like:
 
-```javascript
+```jsx
 <Map bounds={this.state.corners}>
   <TileLayer
     url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -26,7 +26,7 @@ For my new [nightlife app](https://github.com/jstoebel/nightlife) I am using [`l
 
 Neato! There are a few gotchas with `react-leaflet` though. At its core, `leaflet` is not using React, and instead manipulates the DOM on its own. This creates some interesting, unexpected results. For example when a popup is rendered, its doesn't go where you expect it to go in the virtual DOM:
 
-```
+```jsx
 <BrowserRouter></BrowserRouter>
 <div>
     <h5> Burgers and Brew </h5>
@@ -36,7 +36,7 @@ Neato! There are a few gotchas with `react-leaflet` though. At its core, `leafle
 
 Doh! This means that the popup is completely outside the of the context and thus doesn't have access to the redux store. If you were hoping to `mapStateToProps` like normal, you're out of luck. Instead we have to pass props in the old fashioned way:
 
-```
+```jsx
 /* 
   Map.jsx
   map component. This function shows representation of a single bar which 

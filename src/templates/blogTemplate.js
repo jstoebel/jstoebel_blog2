@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import InternalLayout from '../components/InternalLayout'
-// import 'github-markdown-css'
+import 'github-markdown-css'
 
 export default function Template({
   data,

@@ -1,6 +1,6 @@
 ---
 path: "/union-type"
-date: "2019-10-16"
+date: "2019-10-17"
 title: "The Union Type in Typescript"
 ---
 
@@ -42,7 +42,7 @@ Makes sense right? In the first case of the switch statement, treat `payload` li
 
 Lets go back to where we defined the interface for `action`:
 
-```
+```typescript
 interface actionI {
   type: String,
   payload: NotificationI | number
@@ -50,7 +50,8 @@ interface actionI {
 ```
 
 That pipe operator is telling the compiler "payload will be either a notification object or a number. The compiler is ok with not being sure what type an argument will be. What it is not ok with is the possibility the we might end up trying to do something with the argument that makes no sense (such as pass an object to `splice`). The compiler complains:
-```
+
+```typescript
 Argument of type 'number | NotificationI' is not assignable to parameter of type 'number'.
   Type 'NotificationI' is not assignable to type 'number'.
 ```
@@ -59,7 +60,7 @@ Basically its saying "I know you _said_ payload could be a `number` but you also
 
 Fortunately, there's a way to keep the compiler happy: type guards. Here's an example:
 
-```
+```typescript
 function isNotification(payload: NotificationI | Number): payload is NotificationI {
   // message is a member of the notification object
   return (<NotificationI>payload).message !== undefined;
@@ -68,7 +69,7 @@ function isNotification(payload: NotificationI | Number): payload is Notificatio
 
 A type guard is special function because it returns a special type called a type predicate. Basically the compiler will understand this function as one that when fed either a notificaiton or number, it will return `true` if that object is a notification, `false` if it isn't. Type guards are a tool to disambiguate the program and keep the compiler calm. We use them like we would any conditional:
 
-```
+```typescript
 const reducer: Reducer<NotificationI[]> = (state = initialState, action: actionI) => {
   const {payload} = action
   switch (action.type) {

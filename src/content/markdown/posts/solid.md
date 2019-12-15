@@ -1,6 +1,6 @@
 ---
 path: "/solid-ruby-notes"
-date: "2019-11-16"
+date: "2019-11-17"
 title: "Notes on SOLID Ruby"
 ---
 
@@ -8,6 +8,8 @@ I cam across a talk by Jim Weirich called SOLID Ruby, which is apparently consid
 
 SOLID Ruby by Jim Weirich
 https://www.youtube.com/watch?v=dKRbsE061u4
+
+# Intro
 
 Object Oriented Design is concerned with dependencies
 

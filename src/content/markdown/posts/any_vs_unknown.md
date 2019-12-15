@@ -10,7 +10,7 @@ Typescript is a worry wort of a language. It tends to complain when ever there i
 
 `unknown` is how you tell the compiler "I have no idea what this type will be! Proceed with caution." When Typescript is told that we don't know what a type is, it will be sure to complain about undue assumptions made about it. In fact, TS will not let you do _anything_ on an `unknown` type until you perform some kind of narrowing or casting on said object. For example:
 
-```
+```typescript
 let spam: unknown = service.fetch() // no clue what this will return!
 
 if (typeof spam === 'string') {

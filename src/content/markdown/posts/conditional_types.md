@@ -10,13 +10,13 @@ Generics let us pass in types are arguments to generate new types based on them.
 
 For example:
 
-```
+```typescript
 type ArrayFilter<T> = T extends any[] ? T : never;
 ```
 
 effectivly says that ArrayFilter must be given some kind of array for its generic. All other types are mapped on to `never` which can't have anthing assigned to it. If I pass a union type, like 
 
-```
+```typescript
 type StringsOrNumbers = ArrayFilter<string | number | string[] | number[]>;
 ```
 
@@ -26,7 +26,7 @@ But the compiler is smart! I knows that nothing can be assigned to `never` meani
 
 There's more! I can use the type of a function's input to dynamically tell the compiler what type is returned:
 
-```
+```typescript
 interface Book {
   id: string;
   tableOfContents: string[];
@@ -48,7 +48,7 @@ Here I have two types of items, `Tv`s and `Book`s. I've got a function called `g
 
 But I can do better than that. Since `Book`s have an id of `string` type and `Tv`s `number`s we can use what's provided to `getItem` to infer the return type
 
-```
+```typescript
 interface IItemService {
   getItem<T>(id: T): T extends string ? Book : Tv;
 }
@@ -57,7 +57,7 @@ here is use logic saying if the provided argument is of type `string` or extends
 
 But what happens if completly different type is given? `Tv` would mistakenly by infered. I can lock things down like so
 
-```
+```typescript
 interface IItemService {
   getItem<T extends string | number>(id: T): T extends string ? Book : Tv;
 }

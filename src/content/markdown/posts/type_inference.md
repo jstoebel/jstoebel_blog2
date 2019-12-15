@@ -1,16 +1,16 @@
 ---
 path: "/type-inference"
-date: "2019-07-14"
+date: "2019-07-18"
 title: "Type Inference"
 ---
 
 The following are some of my notes from the course [Practical Advanced TypeScript](https://egghead.io/courses/practical-advanced-typescript)
 
-*infer type in switch statements*
+## infer type in switch statements
 
 Let's say I have a switch statement that is switching on an argument's type:
 
-```
+```typescript
 export interface Action {
   type: string;
 }
@@ -53,7 +53,8 @@ The intention is to say "if the action is of type Add do x, but if its RemoveAll
 To help the compiler we need to do two things. First we need to change `readonly type: string = "Add";` to `readonly type = "Add";`. This tells typescript that `type` is of type "Add"` since its value can't be updated.
 
 Second, the function signature isn't specific enough either:
-```
+
+```typescript
 function todoReducer(
   action: Action,
   state: ITodoState = { todos: [] }
@@ -62,7 +63,7 @@ function todoReducer(
 
 In this simple example `Add` and `RemoveAll` are the only two types that implement `Action`, but there could be others!  We need to tell TS that `Add` or `RemoveAll` are the only possible types to be passed in
 
-```
+```typescript
 type Actions = Add | RemoveAll // not the `s` at the end.
 
 //...
@@ -73,16 +74,14 @@ function todoReducer(
 )
 ```
 
-*using `never`*
+## using `never`
 
 to continue the example above, we can use `never` in a default block to let TS know to throw an error if neither branch is used
 
-```
-
+```typescript
 default: {
   const x: never = action;
 }
-
 ```
 
 In my opinion this feels a little clumsy, but it gets the job done: a compile time error if TS knows its possible to reach this code.

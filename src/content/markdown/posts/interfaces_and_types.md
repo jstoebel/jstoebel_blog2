@@ -9,7 +9,8 @@ The following are some of my notes from the course [Practical Advanced TypeScrip
 types and interfaces work the same in many respects but not always.
 
 A type can be a union of two other types/interfaces.
-```
+
+```typescript
 type Pet = Dog | Cat
 ```
 
@@ -17,7 +18,7 @@ But an interface is a contract that an object must implement. It can't be "one o
 
 Also: if I mention an interface of the same name twice they are merged. Similar to in Ruby when I open up a module twice
 
-```
+```typescript
 interface Dog {
   name: string
 }

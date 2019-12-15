@@ -1,6 +1,6 @@
 ---
 path: "/composite-pattern"
-date: "2019-07-13"
+date: "2019-07-16"
 title: "The Composite Pattern"
 ---
 
