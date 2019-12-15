@@ -36,13 +36,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const prev = index === posts.length - 1 ? undefined : posts[index + 1].node;
 
 
-    console.log(
-      'post',
-      index,
-      node.frontmatter.title,
-      next,
-      prev
-    );
+    console.log('creating page for post', node.frontmatter.path);
+    
     
     createPage({
       path: node.frontmatter.path,

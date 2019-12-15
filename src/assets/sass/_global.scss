@@ -114,16 +114,23 @@ p.lead {
     float: right;
   }
 
+  .next {
+    &__title {
+      text-align: right;
+    }
+  }
+
   .prev,
   .next {
     display: flex;
+    max-width: 50%;
 
     &:hover {
       text-decoration: none;
     }
     &__title {
       margin: 0 10px;
-      line-height: .5;
+      line-height: 1;
       display: inline;
       font-size: 1.5em;
     }

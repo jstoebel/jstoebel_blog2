@@ -1,16 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
 import InternalLayout from '../components/InternalLayout'
+// import 'github-markdown-css'
 
 export default function Template({
   data,
   pageContext: { next, prev }
 }) {
+  console.log("TCL: data", data)
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
     <InternalLayout>
-      <div className="blog-post-container">
+      <article className="blog-post-container markdown-body">
         <div className="blog-post">
           <h1 className="blog-post__title">{frontmatter.title}</h1>
           <p className="blog-post__date">{frontmatter.date}</p>
@@ -19,7 +21,7 @@ export default function Template({
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
-      </div>
+      </article>
       <div className="next-prev">
         <NextPrev direction="prev" article={prev} />
         <NextPrev direction="next" article={next} />
