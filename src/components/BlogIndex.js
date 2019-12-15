@@ -1,20 +1,55 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery } from "gatsby"
 import PostLink from "../components/PostLink"
 
-const IndexPage = (props) => {
-  console.log("TCL: IndexPage -> props", props)
-  
-  const {
-    data: {
-      allMarkdownRemark: { edges },
-    },
-  } = props
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+const BlogIndex = (props) => {
 
-  return <div>{Posts}</div>
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            id
+            excerpt(pruneLength: 250)
+            frontmatter {
+              date(formatString: "MMMM DD, YYYY")
+              path
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  console.log("TCL: BlogIndex -> data", data)
+
+  return (
+    <section
+      className="blog-index resume-section p-3 p-lg-5"
+      id="blog"
+    > 
+      <h2 className="blog-index__header">Writing/Podcasts/Etc</h2>
+
+      {
+        data.allMarkdownRemark.edges.map(({node}, i) => {console.log(node); return <BlogPreview key={i} {...node} />})
+      }
+    </section>
+  )
 }
 
-export default IndexPage
+const BlogPreview = ({excerpt, frontmatter }) => {
+  
+  const {title, path, date} = frontmatter;
+  return (
+    <article className="blog-preview">
+      <a href={path} className="blog-preview__link">
+        <h3 className="blog-preview__header">{title}</h3>
+      </a>
+      <time dateTime={date} className="blog-preview__date">{date}</time>
+      <div className="blog-preview__excerpt">{excerpt}</div>
+    </article>
+  )
+}
+
+export default BlogIndex
