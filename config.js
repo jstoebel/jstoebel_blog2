@@ -11,7 +11,7 @@ module.exports = {
   firstName: 'Jacob',
   lastName: 'Stoebel',
   title: 'Software Developer',
-  bio: 'I am software developer specalizing in creating software systems built with Ruby on Rails, Typescript/Javascript and React and, most importantly, people!',
+  bio: 'I am a software developer specalizing in creating software systems built with Ruby on Rails, Typescript/Javascript and React and, most importantly, people!',
   // social
   socialLinks: [
     {
@@ -36,8 +36,7 @@ module.exports = {
     { content: 'About', href: 'about' },
     { content: 'Experience', href: 'experience' },
     { content: 'Values', href: 'values' },
-    { content: 'Projects', href: 'projects' }
+    { content: 'Projects', href: 'projects' },
+    { content: 'Writing/Podcasts/Etc', href: 'blog'}
   ]
 };
-
-// shirt green: #4b7277
