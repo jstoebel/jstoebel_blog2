@@ -58,7 +58,11 @@
 
 .internal-header {
 
-  padding: 0 50px;
+  padding: 10px 50px;
+
+  @media (max-width: 900px) {
+    padding: 10px;
+  }
 
   &__text {
     align-self: center;

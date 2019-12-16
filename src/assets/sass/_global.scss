@@ -2,13 +2,8 @@
 
 body {
   @include body-font;
-  padding-top: 54px;
+  padding-top: 0;
   color: $black;
-}
-@media (min-width: 992px) {
-  body {
-    padding-top: 0;
-  }
 }
 
 h1,
@@ -88,6 +83,11 @@ p.lead {
 
 .internal-layout {
 
+  @media (max-width: 900px) {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
   &__content,
   &__footer {
     clear: both;
@@ -95,21 +95,12 @@ p.lead {
     margin-right: auto;
     max-width: 42rem;
 
-    @media (max-width: 900px) {
-      max-width: 100%;
-    }
 
-    @media (max-width: 600px) {
-      padding: 0 10px;
-    }
   }
 }
 
 .next-prev {
-  overflow: auto;
-  @media (max-width: 900px) {
-    padding: 0 10px;
-  }
+  display: inline-block;
 
   .prev {
     float: left;
