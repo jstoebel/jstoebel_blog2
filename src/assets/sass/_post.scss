@@ -1,3 +1,5 @@
+
+
 .blog-post {
   padding: 0 20px 20px;
 
@@ -34,4 +36,69 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
+}
+
+.internal-layout {
+  &.first {
+    .next {
+      max-width: 100%;
+    }
+  }
+
+  &.last {
+    .prev {
+      max-width: 100%;
+    }
+  }
+}
+
+
+.next-prev {
+  display: inline-block;
+
+  .prev {
+    float: left;
+
+    &__arrow {
+      order: 0
+    }
+
+    &__title {
+      order: 1
+    }
+  }
+
+  .next {
+    float: right;
+  }
+
+  .next {
+    &__title {
+      text-align: right;
+    }
+  }
+
+  .prev,
+  .next {
+    display: flex;
+    max-width: 50%;
+
+    &:hover {
+      text-decoration: none;
+    }
+    &__title {
+      margin: 0 10px;
+      line-height: 1;
+      display: inline;
+      font-size: 1.25em;
+
+      @media (max-width: 600px) {
+        font-size: 1em;
+      }
+    }
+
+    &__arrow {
+      align-self: center;
+    }
+  }
 }

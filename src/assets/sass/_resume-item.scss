@@ -2,6 +2,10 @@ section.resume-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
   max-width: 75rem;
+
+  h2 {
+    word-wrap: break-word;
+  }
   .resume-item {
     .resume-content {}
     .resume-date {

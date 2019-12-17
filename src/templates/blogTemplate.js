@@ -7,11 +7,14 @@ export default function Template({
   data,
   pageContext: { next, prev }
 }) {
-  console.log("TCL: data", data)
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
+
+  const layoutClasses = [];
+  if (!prev) layoutClasses.push('first');
+  if (!next) layoutClasses.push('last');
   return (
-    <InternalLayout>
+    <InternalLayout classes={layoutClasses}>
       <article className="blog-post-container markdown-body">
         <div className="blog-post">
           <h1 className="blog-post__title">{frontmatter.title}</h1>
