@@ -1,0 +1,19 @@
+.resume-item {
+  &__heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__title-company {
+    margin-right: 10px;
+  }
+
+  &__bullets {
+    padding-left: 15px;
+  }
+
+  &__date {
+    margin-bottom: 16px;
+  }
+}

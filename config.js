@@ -10,6 +10,8 @@ module.exports = {
   pathPrefix: `/gatsby-starter-resume/`, // This path is subpath of your hosting https://domain/portfolio
   firstName: 'Jacob',
   lastName: 'Stoebel',
+  title: 'Software Developer',
+  bio: 'I am a software developer specalizing in creating software systems built with Ruby on Rails, Typescript/Javascript, React and, most importantly, people!',
   // social
   socialLinks: [
     {
@@ -29,6 +31,12 @@ module.exports = {
     },
   ],
   email: 'jstoebel@gmail.com',
-};
 
-// shirt green: #4b7277
+  tabs: [
+    { content: 'About', href: 'about' },
+    { content: 'Experience', href: 'experience' },
+    { content: 'Values', href: 'values' },
+    { content: 'Projects', href: 'projects' },
+    { content: 'Writing/Podcasts/Etc', href: 'blog'}
+  ]
+};

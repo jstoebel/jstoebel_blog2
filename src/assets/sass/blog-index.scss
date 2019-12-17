@@ -1,0 +1,8 @@
+.blog-preview {
+  margin-bottom: 25px;
+  &__link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

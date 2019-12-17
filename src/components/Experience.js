@@ -57,14 +57,22 @@ const Section = ({company, title, date, bullets}) => (
 
   <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
     <div className="resume-content">
-      <h3 className="mb-0">{title}</h3>
-      <div className="subheading mb-3">{company}</div>
-      <ul>
-        {bullets.map((bullet, i) => <li key={i}>{bullet}</li>) }
+
+      <div className="resume-item__heading">
+        <div className="resume-item__title-company">
+          <h3 className="mb-0">{title}</h3>
+          <div className="subheading mb-3">{company}</div>
+        </div>
+
+        <div className="resume-item__date">
+          <span className="text-primary">{date}</span>
+        </div>
+      </div>
+
+      <ul className="resume-item__bullets">
+        {bullets.map((bullet, i) => <li className="resume-item__bullet" key={i}>{bullet}</li>) }
       </ul>
-    </div>
-    <div className="resume-date text-md-right">
-      <span className="text-primary">{date}</span>
+
     </div>
   </div>
 )
