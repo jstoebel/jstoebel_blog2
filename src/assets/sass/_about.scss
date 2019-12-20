@@ -1,4 +1,5 @@
 .about {
+  flex-direction: column;
   &__header {
     display: flex;
     flex-wrap: wrap;
@@ -6,5 +7,15 @@
 
   &__first-name {
     margin-right: 10px;
+  }
+
+  &__headshot {
+    float: left;
+    margin-right: auto;
+    width: 200px;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
   }
 }

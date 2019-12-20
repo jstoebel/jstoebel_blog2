@@ -21,7 +21,7 @@ const Sidebar = () => {
           <img
             className="img-fluid img-profile rounded-circle mx-auto mb-2"
             src={headshot}
-            alt=""
+            alt="Jacob Stoebel"
           />
         </span>
       </a>
