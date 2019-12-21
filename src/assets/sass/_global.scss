@@ -76,7 +76,7 @@ p.lead {
 .main-body {
   padding-left: $sidebar-base-width;
 
-  @media (max-width: 992px) {
+  @media (max-width: 991px) {
     padding-left: 0;
   }
 }
