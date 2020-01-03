@@ -11,7 +11,7 @@ module.exports = {
   firstName: 'Jacob',
   lastName: 'Stoebel',
   title: 'Software Developer',
-  bio: 'I am a software developer specalizing in creating software systems built with Ruby on Rails, Typescript/Javascript, React and, most importantly, people!',
+  bio: 'I am a software developer specializing in creating software systems built with Ruby on Rails, Typescript/Javascript, React and, most importantly, people!',
   // social
   socialLinks: [
     {
