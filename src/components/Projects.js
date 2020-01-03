@@ -25,7 +25,7 @@ const Projects = () => {
     },
     {
       name: 'Critical Response Talk',
-      blurb: 'What does an inovator from the dance world have to teach us about code reviews? It turns out quite a lot! This is a talk about the Critical Response Process by Liz Lerman. Check out a video of it from <a href="https://www.youtube.com/watch?v=hP_2XKYia9I">Ruby Conf</a>.',
+      blurb: 'What does an innovator from the dance world have to teach us about code reviews? It turns out quite a lot! This is a talk about the Critical Response Process by Liz Lerman. Check out a video of it from <a href="https://www.youtube.com/watch?v=hP_2XKYia9I">Ruby Conf</a>.',
       url: 'https://github.com/jstoebel/critical_response_talk'
     },
     {
