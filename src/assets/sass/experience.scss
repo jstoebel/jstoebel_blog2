@@ -1,5 +1,15 @@
+.experience {
+  &__header-wrapper {
+    margin-bottom: 3em;
+  }
+
+  &__header {
+    margin-bottom: 0;
+  }
+}
 .resume-item {
-  &__heading {
+
+  &__item {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

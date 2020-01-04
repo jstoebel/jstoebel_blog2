@@ -45,7 +45,12 @@ const Experience = () => {
     id="experience"
   >
     <div className="w-100">
-      <h2 className="mb-5">Experience</h2>
+
+      <div className="experience__header-wrapper">
+        <h2 className="experience__header">Experience</h2>
+        <a href="/Jacob_Stoebel_Resume.pdf">full resume (PDF)</a>
+
+      </div>
       {
         sections.map((section, i) => <Section key={i} {...section}/>)
       }
