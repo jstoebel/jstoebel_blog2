@@ -22,8 +22,6 @@ const BlogIndex = (props) => {
     }
   `)
 
-  console.log("TCL: BlogIndex -> data", data)
-
   return (
     <section
       className="blog-index resume-section p-3 p-lg-5"
@@ -32,7 +30,7 @@ const BlogIndex = (props) => {
       <h2 className="blog-index__header">Writing/Podcasts/Etc</h2>
 
       {
-        data.allMarkdownRemark.edges.map(({node}, i) => {console.log(node); return <BlogPreview key={i} {...node} />})
+        data.allMarkdownRemark.edges.map(({node}, i) => <BlogPreview key={i} {...node} />)
       }
     </section>
   )

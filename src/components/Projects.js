@@ -46,7 +46,7 @@ const Projects = () => {
   ]
   return (
     <section
-      className="p-3 p-lg-5"
+      className="resume-section p-3 p-lg-5"
       id="projects"
     >
       <h2>Projects</h2>

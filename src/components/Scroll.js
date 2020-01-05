@@ -25,7 +25,10 @@ class Scroll extends React.Component {
     e.preventDefault();
     let elem = 0;
     let scroll = true;
-    const { type, element, offset, timeout } = this.props;
+
+    const { type, element, offset, timeout, setMobileNavOpen } = this.props;
+    
+    setMobileNavOpen(false)
     if (type && element) {
       switch (type) {
         case 'class':
