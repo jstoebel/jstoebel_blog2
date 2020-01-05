@@ -48,7 +48,7 @@ const Sidebar = () => {
             const { href, content } = tab;
             return (
               <li className="nav-item" key={href}>
-                <Scroll type="id" element={href}>
+                <Scroll type="id" element={href} setMobileNavOpen={setMobileNavOpen} >
                   <a className="nav-link" href={`#${href}`}>
                     {content}
                   </a>
